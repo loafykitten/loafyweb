@@ -1,0 +1,13 @@
+services:
+  loafyweb:
+    container_name: loafyweb
+    image: ${IMAGE_NAME:-ghcr.io/loafykitten/loafyweb}:${IMAGE_TAG:-main}
+    restart: unless-stopped
+    networks:
+      public-proxy:
+        aliases:
+          - loafyweb
+
+networks:
+  public-proxy:
+    external: true
